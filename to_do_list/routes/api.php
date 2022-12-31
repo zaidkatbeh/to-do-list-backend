@@ -19,4 +19,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('add/list',[listController::class,'store']);
+Route::post('add/list',[listController::class,'store']);
+Route::get('list',[listController::class,'index']);
+Route::get('list/{id}',[listController::class,'show']);
