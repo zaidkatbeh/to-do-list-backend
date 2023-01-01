@@ -17,4 +17,3 @@ use App\Http\Controllers\tastList\listController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('add/list',[listController::class,'store']);

@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\tastList\listController;
+use App\Http\Controllers\task\taskController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +20,11 @@ use App\Http\Controllers\tastList\listController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
-Route::post('add/list',[listController::class,'store']);
+    // tasksList
 Route::get('list',[listController::class,'index']);
-Route::get('list/{id}',[listController::class,'show']);
+Route::post('list/store',[listController::class,'store']);
+Route::post('list/update',[listController::class,'update']);
+Route::post('list/delete',[listController::class,'destroy']);
+    // tasks
+Route::post('list/tasks/store',[taskController::class,'store']);
+Route::get('list/tasks/{id}',[taskController::class,'index']);
